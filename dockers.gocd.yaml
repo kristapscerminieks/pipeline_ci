@@ -29,18 +29,18 @@ pipelines:
       DOCKERFILE_NAME: Dockerfile_base
     stages: *build
 
-    api-test-docker-executor:
-      group: dockers
-      lock_behavior: unlockWhenFinished
-      label_template: "${api-automation}"
-      materials:
-        api-automation:
-          git: https://github.com/kristapscerminieks/api_tests_ci
-          branch: main
-          shallow_clone: true
-          auto_update: true
-          whitelist:
-            - Gemfile
-      environment_variables:
-        DOCKERFILE_NAME: Dockerfile_executor
-      stages: *build
+  api-test-docker-executor:
+    group: dockers
+    lock_behavior: unlockWhenFinished
+    label_template: "${api-automation}"
+    materials:
+      api-automation:
+        git: https://github.com/kristapscerminieks/api_tests_ci
+        branch: main
+        shallow_clone: true
+        auto_update: true
+        whitelist:
+          - Gemfile
+    environment_variables:
+      DOCKERFILE_NAME: Dockerfile_executor
+    stages: *build
