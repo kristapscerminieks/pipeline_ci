@@ -73,19 +73,18 @@ pipelines:
             deploy:
               tasks: *deploy-tasks
       - test-dev:
+          environment_variables:
+            ENV_NAME: dev
           clean_workspace: true
           jobs:
-            build:
-              artifacs:
+            test:
+              artifacts:
                 - build:
                     source: report_dev.html
                     destination: test-output/
-              tasks:
-                - exec:
-                    command: bash
-                    arguments:
-                      - -c
-                      - echo "Testing on DEV"
+              tabs:
+                Report: test-output/report_dev.html
+              tasks: *test-tasks
       - deploy-int:
           environment_variables:
             ENV_NAME: int
@@ -94,19 +93,18 @@ pipelines:
             deploy:
               tasks: *deploy-tasks
       - test-int:
+          environment_variables:
+            ENV_NAME: int
           clean_workspace: true
           jobs:
-            build:
-              artifacs:
+            test:
+              artifacts:
                 - build:
                     source: report_int.html
                     destination: test-output/
-              tasks:
-                - exec:
-                    command: bash
-                    arguments:
-                      - -c
-                      - echo "Testing on INT"
+              tabs:
+                Report: test-output/report_int.html
+              tasks: *test-tasks
       - deploy-prd:
           environment_variables:
             ENV_NAME: prd
@@ -115,16 +113,15 @@ pipelines:
             deploy:
               tasks: *deploy-tasks
       - test-prd:
+          environment_variables:
+            ENV_NAME: prd
           clean_workspace: true
           jobs:
-            build:
-              artifacs:
+            test:
+              artifacts:
                 - build:
-                    source: report_int.html
+                    source: report_prd.html
                     destination: test-output/
-              tasks:
-                - exec:
-                    command: bash
-                    arguments:
-                      - -c
-                      - echo "Testing on PRD"
+              tabs:
+                Report: test-output/report_prd.html
+              tasks: *test-tasks
