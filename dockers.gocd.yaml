@@ -20,7 +20,7 @@ pipelines:
     materials:
       api-automation:
         git: https://github.com/kristapscerminieks/api_tests_ci
-        branch: master
+        branch: main
         shallow_clone: true
         auto_update: true
         whitelist:
@@ -36,7 +36,7 @@ pipelines:
       materials:
         api-automation:
           git: https://github.com/kristapscerminieks/api_tests_ci
-          branch: master
+          branch: main
           shallow_clone: true
           auto_update: true
           whitelist:
