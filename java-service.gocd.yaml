@@ -76,6 +76,10 @@ pipelines:
           clean_workspace: true
           jobs:
             build:
+              artifacs:
+                - build:
+                  source: report_dev.html
+                  destination: test-output/
               tasks:
                 - exec:
                     command: bash
@@ -93,6 +97,10 @@ pipelines:
           clean_workspace: true
           jobs:
             build:
+              artifacs:
+                - build:
+                  source: report_int.html
+                  destination: test-output/
               tasks:
                 - exec:
                     command: bash
@@ -110,6 +118,10 @@ pipelines:
           clean_workspace: true
           jobs:
             build:
+              artifacs:
+                - build:
+                  source: report_int.html
+                  destination: test-output/
               tasks:
                 - exec:
                     command: bash
