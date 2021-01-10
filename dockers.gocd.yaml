@@ -1,4 +1,4 @@
-format_version: 2                   
+format_version: 2
     pipelines:
       api-test-docker-base:
         group: utils
