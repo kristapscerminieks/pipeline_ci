@@ -12,13 +12,13 @@ pipelines:
       whitelist:
         - Gemfile
     stages:
-      - build
+      - build:
         clean-workspace: true
         jobs:
           build-docker:
             tasks:
               - exec:
-                command: bash 
+                command: bash
                 arguments:
                   - -c
-                  - docker build -t api_test_base . -f Dockerfile_base 
+                  - docker build -t api_test_base . -f Dockerfile_base
